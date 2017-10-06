@@ -3,6 +3,7 @@
  *
  * Author: Marc Chesebro
  *****************************************/
+include <string>
 
 class Concert{
 
@@ -23,6 +24,8 @@ public:
 	//constructors
 	Concert();
 	Concert(std::string concertName, std::vector<std::string> friends, int desire, std::tm date);
+
+	
 	
 	//setters
 	void setConcertName(std::string name);
