@@ -12,11 +12,10 @@ std::tm randomDate() {
 	date.tm_year = rand() % 11;
 	date.tm_mon = rand() % 12;
 	date.tm_mday = rand() % 31;
+	std::cout << "r: " << date.tm_year << std::endl;	
 
 	return date;
 }
-
-
 
 int main(){
 
@@ -25,13 +24,17 @@ int main(){
 	for(int i = 0; i < 10; i++){
 
 		std::vector<std::string> friends;
-
+		std::tm date = randomDate();
+			
+		std::cout << "a: " << date.tm_year << std::endl;	
+		
 		concerts.push_back(Concert::Concert(
 			"c" + std::to_string(i),
 			friends,
-			rand() % 11 + 1,
-			randomDate()
+			rand() % 10 + 1,
+			date
 		));
+		
 
 	}		
 
@@ -42,6 +45,6 @@ int main(){
 
 	for (int i = 0; i < concerts.size(); i++) {
 
-		std::cout << concerts[i];
+		std::cout << concerts[i] << std::endl;
 	}
 }

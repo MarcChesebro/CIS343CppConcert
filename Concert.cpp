@@ -50,16 +50,16 @@ std::tm Concert::getDate() const{
 //operator overides
 bool Concert::operator<(const Concert& other) const{
 	
-	if(date.tm_year < other.date.tm_year){
+	if(date.tm_year < other.getDate().tm_year){
 		return true;
 
-	}else if(date.tm_year == other.date.tm_year && date.tm_mon < other.date.tm_mon){
+	}else if(date.tm_year == other.getDate().tm_year && date.tm_mon < other.getDate().tm_mon){
 		return true;
 
-	}else if(date.tm_year == other.date.tm_year && date.tm_mon == other.date.tm_mon && date.tm_mday < other.date.tm_mday){
+	}else if(date.tm_year == other.getDate().tm_year && date.tm_mon == other.getDate().tm_mon && date.tm_mday < other.getDate().tm_mday){
 		return true;
 
-	}else if(date.tm_year == other.date.tm_year && date.tm_mon == other.date.tm_mon && date.tm_mday == other.date.tm_mday && desire < other.desire){
+	}else if(date.tm_year == other.date.tm_year && date.tm_mon == other.getDate().tm_mon && date.tm_mday == other.getDate().tm_mday && desire < other.desire){
 		return true;
 	}
 
@@ -69,6 +69,6 @@ bool Concert::operator<(const Concert& other) const{
 std::ostream& operator<<(std::ostream& os, const Concert& concert) {
 
 	std::tm date = concert.getDate();
-	os << concert.getConcertName() << " [" << date.tm_mon << '/' << date.tm_mday << '/' << date.tm_year << "] Desire: " << concert.getDesire();
+	os << concert.getConcertName() << " [" << concert.getDate().tm_mon << '/' << concert.getDate().tm_mday << '/' << concert.getDate().tm_year << "] Desire: " << concert.getDesire();
 	return os;
 }
