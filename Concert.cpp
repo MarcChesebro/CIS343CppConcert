@@ -66,7 +66,7 @@ bool Concert::operator<(const Concert& other) const{
 	return false;	
 }
 
-std::ostream& Concert::operator<<(std::ostream& os, const Concert& concert) {
+std::ostream& operator<<(std::ostream& os, const Concert& concert) {
 
 	std::tm date = concert.getDate();
 	os << concert.getConcertName() << " [" << date.tm_mon << '/' << date.tm_mday << '/' << date.tm_year << "] Desire: " << concert.getDesire();
