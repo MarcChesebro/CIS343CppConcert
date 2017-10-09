@@ -9,17 +9,11 @@
 
 std::tm randomDate() {
 
-	std::tm date;
+	std::tm date;	
 
-	std::default_random_engine gen;
-	std::uniform_int_distribution<int> yRange(0, 10);
-	std::uniform_int_distribution<int> mRange(0, 11);
-	std::uniform_int_distribution<int> dRange(0, 31);
-	
-
-	date.tm_year = yRange(gen);
-	date.tm_mon = mRange(gen);
-	date.tm_mday = dRange(gen);
+	date.tm_year = rand() % 10;
+	date.tm_mon = rand() % 12;
+	date.tm_mday = rand() % 31;
 
 	return date;
 }
@@ -27,18 +21,46 @@ std::tm randomDate() {
 int main(){
 
 	std::vector<Concert> concerts;	
+	
+	std::vector<std::string> friends;
+	
+	std::tm date1;
+	date1.tm_year = 1;
+	date1.tm_mon = 1;
+	date1.tm_mday = 1;
+
+	std::tm date2;
+	date2.tm_year = 1;
+	date2.tm_mon = 1;
+	date2.tm_mday = 2;
+
+	concerts.push_back(Concert::Concert(
+			"c-1",
+			friends,
+			7,
+			date1
+		));
+	concerts.push_back(Concert::Concert(
+			"c-2",
+			friends,
+			5,
+			date2
+		));
+	concerts.push_back(Concert::Concert(
+			"c-3",
+			friends,
+			6,
+			date2
+		));
+	srand(time(NULL));	
 
 	for(int i = 0; i < 10; i++){
 
-		std::vector<std::string> friends;
-
-		std::default_random_engine gen;
-		std::uniform_int_distribution<int> dRange(0, 10);
 
 		concerts.push_back(Concert::Concert(
 			"c" + std::to_string(i),
 			friends,
-			dRange(gen),
+			rand() % 9 + 1,
 			randomDate()
 		));
 	}		
