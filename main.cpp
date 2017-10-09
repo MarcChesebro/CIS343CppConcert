@@ -32,7 +32,13 @@ int main(){
 			rand() % 11 + 1,
 			randomDate()
 		));
+
 	}		
+
+	for (int i = 0; i < concerts.size(); i++) {
+
+		std::cout << concerts[i].getDate().tm_year << std::endl;
+	}
 
 	for (int i = 0; i < concerts.size(); i++) {
 
