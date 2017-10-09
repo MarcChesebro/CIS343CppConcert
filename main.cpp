@@ -10,12 +10,14 @@ int main(){
 
 	for(int i = 0; i < 10; i++){
 
-		Concert::Concert(
+		std::vector<std::string> friends;
+
+		concerts.push_back(Concert::Concert(
 			"c" + i,
-			std::vector<std::string>,
+			friends,
 			rand() % 11 + 1,
 			randomDate()
-		);
+		));
 	}			
 }
 

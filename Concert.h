@@ -4,8 +4,8 @@
  * Author: Marc Chesebro
  *****************************************/
 
-#ifndef Concert
-#define Concert
+#ifndef _Concert
+#define _Concert
 
 #include <string>
 #include <ctime>
