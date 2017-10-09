@@ -1,5 +1,6 @@
 #include "Concert.h"
 #include <string>
+#include <iostream>
 #include <vector>
 #include <cstdlib>
 #include <ctime>
@@ -15,6 +16,8 @@ std::tm randomDate() {
 	return date;
 }
 
+
+
 int main(){
 
 	std::vector<Concert> concerts;	
@@ -29,5 +32,10 @@ int main(){
 			rand() % 11 + 1,
 			randomDate()
 		));
-	}			
+	}		
+
+	for (int i = 0; i < concerts.size; i++) {
+
+		std::cout << concerts[i];
+	}
 }

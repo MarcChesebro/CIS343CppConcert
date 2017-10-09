@@ -33,7 +33,7 @@ Concert::Concert(std::string concertName, std::vector<std::string> friends, int 
 std::ostream& operator<<(std::ostream& os, const Concert& concert){  
 
 	std::tm date = concert.getDate();
-	os << concert.getConcertName() << " [" << date.tm_mon  << '/' <<  date.tm_mday << '/' << date.tm_year << "]"; 
+	os << concert.getConcertName() << " [" << date.tm_mon  << '/' <<  date.tm_mday << '/' << date.tm_year << "] Desire: " << concert.getDesire ; 
 	return os;  
 }  
 
