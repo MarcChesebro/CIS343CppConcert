@@ -4,7 +4,11 @@
  * Author: Marc Chesebro
  *****************************************/
 
-import "Concert.h"
+#include "Concert.h"
+#include <string>
+#include <vector>
+#include <iostream>
+#include <ctime>
 
 //constructors
 Concert::Concert(){
@@ -24,14 +28,44 @@ Concert::Concert(std::string concertName, std::vector<std::string> friends, int 
 	this->date = std::tm();
 }
 
+std::ostream& operator<<(std::ostream& os, const Concert::Concert& concert){  
+
+	std::tm date = concert.getDate();
+	os << concert.getConcertName() << " [" << date.tm_mon  << '/' <<  date.tm_mday << '/' << date.tm_year << "]"; 
+	return os;  
+}  
+
+//getters
+std::string Concert::getConcertName() const{
+	return concertName;
+}
+
+std::vector<std::string> Concert::getFriends() const{
+	return friends;
+}
+
+int Concert::getDesire() const{
+	return desire;
+}
+
+std::tm Concert::getDate() const{
+	return date;
+}	
+
+//operator overides
 bool Concert::operator<(const Concert& other) const{
 	
 	if(date.tm_year < other.date.tm_year){
 		return true;
+
 	}else if(date.tm_year == other.date.tm_year && date.tm_mon < other.date.tm_mon){
 		return true
+
 	}else if(date.tm_year == other.date.tm_year && date.tm_mon == other.date.tm_mon && date.tm_mday < other.date.tm_mday){
 		return true;
+
+	}else if(date.tm_year == other.date.tm_year && date.tm_mon == other.date.tm_mon && date.tm_mday == other.date.tm_mday && desire < other.desire){
+		return false;
 	}
 
 	return false;	
