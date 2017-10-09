@@ -65,7 +65,7 @@ bool Concert::operator<(const Concert& other) const{
 		return true;
 
 	}else if(date.tm_year == other.date.tm_year && date.tm_mon == other.date.tm_mon && date.tm_mday == other.date.tm_mday && desire < other.desire){
-		return false;
+		return true;
 	}
 
 	return false;	
