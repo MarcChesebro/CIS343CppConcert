@@ -30,8 +30,9 @@ public:
 	//constructors
 	Concert();
 	Concert(std::string concertName, std::vector<std::string> friends, int desire, std::tm date);
-	bool operator<(const Concert& other) const;
-
+	bool Concert::operator<(const Concert& other) const;
+	std::ostream& operator<<(std::ostream&, const Concert& concert);
+	//(std::ostream& os, const Concert& concert);
 	//TODO getters
 	
 	std::string getConcertName() const;

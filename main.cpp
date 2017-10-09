@@ -34,7 +34,7 @@ int main(){
 		));
 	}		
 
-	for (int i = 0; i < concerts.size; i++) {
+	for (int i = 0; i < concerts.size(); i++) {
 
 		std::cout << concerts[i];
 	}
