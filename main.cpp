@@ -4,25 +4,8 @@
 #include <cstdlib>
 #include <ctime>
 
-int main(){
+std::tm randomDate() {
 
-	std::vector<std::string> concerts;	
-
-	for(int i = 0; i < 10; i++){
-
-		std::vector<std::string> friends;
-
-		concerts.push_back(Concert::Concert(
-			"c" + i,
-			friends,
-			rand() % 11 + 1,
-			randomDate()
-		));
-	}			
-}
-
-std::tm randomDate(){
-	
 	std::tm date;
 
 	date.tm_year = rand() % 11;
@@ -30,4 +13,21 @@ std::tm randomDate(){
 	date.tm_mday = rand() % 31;
 
 	return date;
+}
+
+int main(){
+
+	std::vector<Concert> concerts;	
+
+	for(int i = 0; i < 10; i++){
+
+		std::vector<std::string> friends;
+
+		concerts.push_back(Concert::Concert(
+			"c" + std::to_string(i),
+			friends,
+			rand() % 11 + 1,
+			randomDate()
+		));
+	}			
 }
