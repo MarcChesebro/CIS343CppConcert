@@ -27,7 +27,7 @@ Concert::Concert(std::string concertName, std::vector<std::string> friends, int 
 	this->concertName = concertName;
 	this->friends = friends;
 	this->desire = desire;
-	this->date = std::tm();
+	this->date = date;
 }
 
 //getters
@@ -68,7 +68,6 @@ bool Concert::operator<(const Concert& other) const{
 
 std::ostream& operator<<(std::ostream& os, const Concert& concert) {
 
-	std::tm date = concert.getDate();
 	os << concert.getConcertName() << " [" << concert.getDate().tm_mon << '/' << concert.getDate().tm_mday << '/' << concert.getDate().tm_year << "] Desire: " << concert.getDesire();
 	return os;
 }
