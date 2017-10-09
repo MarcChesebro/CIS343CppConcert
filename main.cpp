@@ -5,14 +5,21 @@
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
+#include <random>
 
 std::tm randomDate() {
 
 	std::tm date;
 
-	date.tm_year = rand() % 11;
-	date.tm_mon = rand() % 12;
-	date.tm_mday = rand() % 31;	
+	std::default_random_engine gen;
+	std::uniform_int_distribution<int> yRange(0, 10);
+	std::uniform_int_distribution<int> mRange(0, 11);
+	std::uniform_int_distribution<int> dRange(0, 31);
+	
+
+	date.tm_year = yRange(gen);
+	date.tm_mon = mRange(gen);
+	date.tm_mday = dRange(gen);
 
 	return date;
 }
@@ -25,10 +32,13 @@ int main(){
 
 		std::vector<std::string> friends;
 
+		std::default_random_engine gen;
+		std::uniform_int_distribution<int> dRange(0, 10);
+
 		concerts.push_back(Concert::Concert(
 			"c" + std::to_string(i),
 			friends,
-			rand() % 10 + 1,
+			dRange(gen),
 			randomDate()
 		));
 	}		
