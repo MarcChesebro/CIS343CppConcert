@@ -12,7 +12,6 @@
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
-#include <random>
 
 /*
  * A function that generates a random date and puts it in 
